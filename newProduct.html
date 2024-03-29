@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">e-Commerce</a>
+                <a class="navbar-brand" href="#">EpicBooks</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,10 +23,10 @@
                             <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/product.html">Products</a>
+                            <a class="nav-link" href="/product.html">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Add Product</a>
+                            <a class="nav-link" href="/newProduct.html">New Product</a>
                         </li>
                     </ul>
                 </div>
@@ -35,7 +35,7 @@
     </header>
 
     <main>
-        <h1 class="text-center my-3 fs-3 fw-bold">Add Product</h1>
+        <h1 class="text-center my-3 fs-3 fw-bold">Add a New Book</h1>
         <div class="row">
             <form class="col-6 mx-auto d-flex flex-column" onsubmit="handleSubmit(event)">
                 <div>
@@ -47,16 +47,16 @@
                     <input required type="number" id="price" class="form-control">
                 </div>
                 <div>
-                    <label for="number" class="form-label">Number</label>
+                    <label for="number" class="form-label">Asin</label>
                     <input required type="number" id="number" class="form-control">
                 </div>
                 <div>
-                    <label for="time" class="form-label">Genre</label>
+                    <label for="time" class="form-label">Category</label>
                     <input required type="text" id="genre" class="form-control">
                 </div>
 
                 <button class="btn btn-primary my-4" type="submit">
-                    Send
+                    Add
                 </button>
             </form>
         </div>
@@ -65,6 +65,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-<script src="js/script.js"></script>
+<script src="js/newProduct.js"></script>
 </body>
 </html>

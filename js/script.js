@@ -20,7 +20,7 @@ function showBooks(book) {
     const cardContainer = document.createElement("div");
     cardContainer.setAttribute("class", "col-12 col-md-4 col-lg-3");
     cardContainer.innerHTML = `<div class="card" style"width: 18rem;">
-    <img src="${book.img}" class="card-img-top" alt="book card">
+    <a href="product.html?id=${book.asin}"><img class="bookImg" src="${book.img}" class="card-img-top" alt="book card"></a>
     <div class="card-body">
       <h5 class="card-title">${book.title}</h5>
       <p class="card-text">${book.price} $</p>
@@ -35,6 +35,4 @@ function showBooks(book) {
 getData().then(books => {
     books.map((book) => showBooks(book))
 });
-
-
 
