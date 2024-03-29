@@ -1,5 +1,4 @@
 //Chiamata API
-
 const ENDPOINT = "https://striveschool-api.herokuapp.com/books";
 
 async function getData() {
@@ -12,11 +11,9 @@ async function getData() {
         console.log(error);
     }
 }
-
 getData().then(body => console.log(body)) // Qui visualizzo l'array nella console
 
-// Renderizzo i libri dell'array
-
+// Visualizzo i libri dell'array sulla pagina
 const bookContainer = document.getElementById("bookContainer");
 
 function showBooks(book) {
@@ -38,4 +35,6 @@ function showBooks(book) {
 getData().then(books => {
     books.map((book) => showBooks(book))
 });
+
+
 
