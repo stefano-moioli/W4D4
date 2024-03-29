@@ -26,7 +26,7 @@ function showBooks(book) {
       <p class="card-text">${book.price} $</p>
       <p class="card-text">${book.asin}</p>
       <p class="card-text">${book.category}</p>
-      <a href="#" class="btn btn-primary"> Add to cart</a>
+      <a href="newProduct.html" class="btn btn-primary">Modify Product</a>
       </div>
       </div>`
     bookContainer.append(cardContainer);
