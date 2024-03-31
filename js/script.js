@@ -11,15 +11,15 @@ window.onload = async () => {
     const products = await response.json();
     const productsContainer = document.getElementById("productsContainer");
     products.forEach((product) => {
-        productsContainer.innerHTML += `<div class="card mb-3" style"width: 18rem;">
+        productsContainer.innerHTML += `
+        <div class="col-12 col-sm 6 col-md-3 col-lg-2">
         <a href="product.html?id=${product._id}"><img class="bookImg" src="${product.imageUrl}" class="card-img-top" alt="product image"></a>
-        <div class="card-body">
-          <h5 class="card-title">${product.name}</h5>
+        <h5 class="card-title">${product.name}</h5>
           <p class="card-text">${product.price} $</p>
           <p class="card-text">${product.description}</p>
           <a href="backOffice.html?id=${product._id}" class="btn btn-primary">Modify Product</a>
           </div>
-          </div>`
+          `
     })
     console.log(products);
     } 

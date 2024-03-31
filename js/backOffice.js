@@ -30,6 +30,7 @@ window.onload = async () => {
     }
 }
 
+/*
 const createNewProduct = async() => {
     const newProduct = {
         name: document.getElementById("name").value,
@@ -51,4 +52,28 @@ const createNewProduct = async() => {
         alert("You have created a new product")
     }
     console.log(newProduct);
-}
+}*/
+
+
+const createNew = async () => {
+    const product = {
+      name: document.querySelector("#name").value,
+      description: document.querySelector("#description").value,
+      brand: document.querySelector("#brand").value,
+      imageUrl: document.querySelector("#imageUrl").value,
+      price: document.querySelector("#price").value,
+    }
+    let res = await fetch(ENDPOINT, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: KEY,
+      },
+      body: JSON.stringify(product),
+    })
+    if (res.ok) {
+      alert("Product created")
+    }
+    console.log(product);
+  }
+
