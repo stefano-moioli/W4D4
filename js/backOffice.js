@@ -4,8 +4,7 @@ const KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjA4MTdjMWV
 // Recuperiamo l'id dall'URL
 let searchParams = new URLSearchParams(window.location.search)
 let id = searchParams.get("id")
-// Se abbiamo un id (ovvero se id è truthy, allora siamo in modifica)
-const isEdit = !!id
+
 
 window.onload = async () => {
     if (id) {
@@ -17,44 +16,25 @@ window.onload = async () => {
         const product = await response.json()
 
         // Se l'id c'è, il titolo diventa "Edit"
-        document.querySelector("h1").innerText = "Edit Product"
-        document.getElementsByTagName("button").innerHtml = "Modify"
+        document.querySelector("h3").innerText = "Edit or Delete Product"
+
         // compilo il form
         document.getElementById("name").value = product.name
         document.getElementById("description").value = product.description
         document.getElementById("brand").value = product.brand
-        document.getElementById("image").value = product.image
+        document.getElementById("imageUrl").value = product.imageUrl
         document.getElementById("price").value = product.price
+        
         //rimuovo i bottoni non necessari
-        document.getElementById("addProduct").remove()
+        document.getElementById("createBtn").remove()
+        
+    } else{
+        document.getElementById("editBtn").remove()
+        document.getElementById("deleteBtn").remove()
     }
 }
 
-/*
-const createNewProduct = async() => {
-    const newProduct = {
-        name: document.getElementById("name").value,
-        description: document.getElementById("description").value,
-        brand: document.getElementById("brand").value,
-        image: document.getElementById("image").value,
-        price: document.getElementById("price").value,
-    }
-
-   let response = await fetch(ENDPOINT, {
-        method: "POST",
-        headers: {
-            "content-type": "application/json",
-            authorization: KEY,
-        },
-        body: JSON.stringify(newProduct),
-    })
-    if (response.ok){
-        alert("You have created a new product")
-    }
-    console.log(newProduct);
-}*/
-
-
+// Funzione per creare nuovo prodotto (metodo POST)
 const createNew = async () => {
     const product = {
       name: document.querySelector("#name").value,
@@ -63,7 +43,7 @@ const createNew = async () => {
       imageUrl: document.querySelector("#imageUrl").value,
       price: document.querySelector("#price").value,
     }
-    let res = await fetch(ENDPOINT, {
+    let response = await fetch(ENDPOINT, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -71,9 +51,55 @@ const createNew = async () => {
       },
       body: JSON.stringify(product),
     })
-    if (res.ok) {
+    if (response.ok) {
       alert("Product created")
     }
     console.log(product);
   }
+
+//Funzione per modificare prodotto (metodo PUT)
+const editProduct = async () => {
+    const product = {
+        name: document.getElementById("name").value,
+        description: document.getElementById("description").value,
+        brand: document.getElementById("brand").value,
+        imageUrl: document.getElementById("imageUrl").value,
+        price: document.getElementById("price").value,
+    }
+
+    let response = await fetch(ENDPOINT + id, {
+        method: "PUT",
+        headers: {
+            "content-type": "application/json",
+            authorization: KEY,
+        },
+        body: JSON.stringify(product),
+    })
+    if (response.ok){
+        alert("Product modified")
+    }
+}
+
+//Funzione per eliminare prodotto (metodo DELETE)
+const removeProduct = async () => {
+    const product = {
+        name: document.getElementById("name").value,
+        description: document.getElementById("description").value,
+        brand: document.getElementById("brand").value,
+        imageUrl: document.getElementById("imageUrl").value,
+        price: document.getElementById("price").value,
+    }
+
+    let response = await fetch(ENDPOINT + id, {
+        method: "DELETE",
+        headers: {
+            "content-type": "application/json",
+            authorization: KEY,
+        },
+        body: JSON.stringify(product),
+    })
+    if (response.ok){
+        alert("Product removed")
+    }
+}
 

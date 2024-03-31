@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">MK</a>
+                <a class="navbar-brand" href="#">MK Shop</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -35,28 +35,22 @@
     </header>
 
     <main>
-        <h1 class="text-center my-3 fs-3 fw-bold">Back Office</h1>
-        <div class="row">
+        <h3 class="text-center my-3">Back Office</h1>
+        <div class="container">
             
-            <form >
+            <form>
                 <div class="form-group">
-                  <label for="name">Nome prodotto</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="name"
-                    aria-describedby="emailHelp"
-                  />
+                  <label for="name">Product Name</label>
+                  <input type="text" class="form-control" id="name" aria-describedby="emailHelp"/>
                 </div>
                 <div class="form-group">
                   <label for="description">Descrizione prodotto</label>
-                  <input type="text" class="form-control" id="description" />
+                  <input type="text" class="form-control" id="description"/>
                 </div>
                 <div class="form-group mr-5">
                   <label for="imageUrl">Immagine</label>
                   <input type="text" class="form-control" id="imageUrl" />
                 </div>
-                <div class="d-flex">
                   <div class="form-group mr-5">
                     <label for="brand">Marca del prodotto</label>
                     <input type="text" class="form-control" id="brand" />
@@ -64,14 +58,14 @@
                   <div class="form-group">
                     <label for="price">Price</label>
                     <input type="number" class="form-control" id="price" />
-                  </div>
                 </div>
-                <button type="button" class="btn btn-success" onclick="createNew()">
-                  Crea nuovo
+                <button type="button" class="btn btn-success mt-3" id="createBtn" onclick="createNew()">
+                  Create a new product
                 </button>
-                <button type="button" class="btn btn-secondary" onclick="editProduct()">Modifica</button>
-                <button type="button" class="btn btn-danger" onclick="deleteProduct()">Elimina</button>
+                <button type="button" class="btn btn-secondary mt-3" id="editBtn" onclick="editProduct()">Modify</button>
+                <button type="button" class="btn btn-danger mt-3" id="deleteBtn" onclick="removeProduct()">Delete</button>
               </form>
+            
 
 
            <!-- <form class="col-6 mx-auto d-flex flex-column">
