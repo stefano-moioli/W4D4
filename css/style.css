@@ -1,5 +1,28 @@
+
 .bookImg{
-   width: 230px;
-   height: 350px;
+   width: 100%;
+   max-width: 350px;
    border-radius: 10px;
+   object-fit: cover;
+}
+
+.card{
+   border-radius: 10px;
+}
+
+@media screen and (max-width: 766px) {
+   .bookImg{
+      height: 300px;
+      width: 230px;
+      object-fit: contain;
+   }
+   .card{
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+   .card-body{
+      width: 230px;
+   }
 }

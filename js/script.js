@@ -1,38 +1,51 @@
-//Chiamata API
-const ENDPOINT = "https://striveschool-api.herokuapp.com/books";
+//Chiamata Fetch
+const ENDPOINT = "https://striveschool-api.herokuapp.com/api/product/"
+const KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjA4MTdjMWViYzE5NzAwMTk4ZWQxM2MiLCJpYXQiOjE3MTE4MDY0MDEsImV4cCI6MTcxMzAxNjAwMX0.barFv73SIEyQx9V2AwLRiHeMA3UPuFZNBhVJTkZTJX8"
 
-async function getData() {
-    try {
-        const response = await fetch(ENDPOINT);
-        const data = await response.json();
-        return data;
+window.onload = async () => {
+        const response = await fetch(ENDPOINT, {
+        headers: { 
+        authorization: KEY,
+        },
+    })
+    const products = await response.json();
+    const productsContainer = document.getElementById("productsContainer");
+    products.forEach((product) => {
+        productsContainer.innerHTML += `<div class="card mb-3" style"width: 18rem;">
+        <a href="product.html?id=${product._id}"><img class="bookImg" src="${product.imageUrl}" class="card-img-top" alt="product image"></a>
+        <div class="card-body">
+          <h5 class="card-title">${product.name}</h5>
+          <p class="card-text">${product.price} $</p>
+          <p class="card-text">${product.description}</p>
+          <a href="backOffice.html?id=${product._id}" class="btn btn-primary">Modify Product</a>
+          </div>
+          </div>`
+    })
+    console.log(products);
+    } 
 
-    } catch (error) {
-        console.log(error);
-    }
-}
-getData().then(body => console.log(body)) // Qui visualizzo l'array nella console
+/* //Visualizzo l'array nella console
+getData().then(body => console.log(body))
 
-// Visualizzo i libri dell'array sulla pagina
-const bookContainer = document.getElementById("bookContainer");
 
-function showBooks(book) {
-    const cardContainer = document.createElement("div");
-    cardContainer.setAttribute("class", "col-12 col-md-4 col-lg-3");
-    cardContainer.innerHTML = `<div class="card" style"width: 18rem;">
-    <a href="product.html?id=${book.asin}"><img class="bookImg" src="${book.img}" class="card-img-top" alt="book card"></a>
+// Visualizzo i prodotti dell'array sulla pagina
+const productsContainer = document.getElementById("productsContainer");
+
+function showProducts(product) {
+    const productContainer = document.createElement("div");
+    productContainer.setAttribute("class", "col-12 col-md-4 col-lg-3");
+    productContainer.innerHTML = `<div class="card mb-3" style"width: 18rem;">
+    <a href="product.html?id=${product._id}"><img class="bookImg" src="${product.imageUrl}" class="card-img-top" alt="product image"></a>
     <div class="card-body">
-      <h5 class="card-title">${book.title}</h5>
-      <p class="card-text">${book.price} $</p>
-      <p class="card-text">${book.asin}</p>
-      <p class="card-text">${book.category}</p>
-      <a href="newProduct.html" class="btn btn-primary">Modify Product</a>
+      <h5 class="card-title">${product.name}</h5>
+      <p class="card-text">${product.price} $</p>
+      <p class="card-text">${product.description}</p>
+      <a href="newProduct.html?id=${product._id}" class="btn btn-primary">Modify Product</a>
       </div>
       </div>`
-    bookContainer.append(cardContainer);
+    productContainer.append(productsContainer);
 }
 
-getData().then(books => {
-    books.map((book) => showBooks(book))
-});
-
+getData().then(products => {
+    products.map((product) => showProducts(product))
+});*/
