@@ -18,7 +18,7 @@ window.onload = async () => {
           <p class="card-text">${product.brand}</p>
           <p class="card-text">${product.description}</p>
           <p class="card-text">${product.price} $</p>
-          <a href="backOffice.html?id=${product._id}" class="btn btn-primary">Modify Product</a>
+          <a href="backOffice.html?id=${product._id}" class="btn btn-primary">Edit Product</a>
           </div>
           `
     })
