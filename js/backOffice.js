@@ -103,3 +103,11 @@ const removeProduct = async () => {
     }
 }
 
+const buttonCreate = document.getElementById("createBtn")
+buttonCreate.addEventListener("click", createNew)
+
+const buttonEdit = document.getElementById("editBtn")
+buttonEdit.addEventListener("click", editProduct)
+
+const buttonDelete = document.getElementById("deleteBtn")
+buttonDelete.addEventListener("click", removeProduct)
