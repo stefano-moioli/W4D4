@@ -17,7 +17,7 @@ window.onload = async () => {
     productContainer.setAttribute("class", "d-flex flex-column align-items-center mt-3")
     productContainer.innerHTML = `
     <div class="col-12 col-sm 6 col-md-4 col-lg-3 productContainer">
-    <a href="product.html?id=${product._id}"><img class="bookImg" src="${product.imageUrl}" class="card-img-top" alt="product image"></a>
+    <a href="product.html?id=${product._id}"><img class="productImg" src="${product.imageUrl}" class="card-img-top" alt="product image"></a>
     <h5 class="card-title">${product.name}</h5>
       <p class="card-text">${product.brand}</p>
       <p class="card-text">${product.description}</p>

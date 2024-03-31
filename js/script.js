@@ -12,8 +12,8 @@ window.onload = async () => {
     const productsContainer = document.getElementById("productsContainer");
     products.forEach((product) => {
         productsContainer.innerHTML += `
-        <div class="col-12 col-sm 6 col-md-4 col-lg-3 productContainer">
-        <a href="product.html?id=${product._id}"><img class="bookImg" src="${product.imageUrl}" class="card-img-top" alt="product image"></a>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4 productContainer">
+        <a href="product.html?id=${product._id}"><img class="productImg" src="${product.imageUrl}" class="card-img-top" alt="product image"></a>
         <h5 class="card-title">${product.name}</h5>
           <p class="card-text">${product.brand}</p>
           <p class="card-text">${product.description}</p>
@@ -24,29 +24,3 @@ window.onload = async () => {
     })
     console.log(products);
 }
-
-/* //Visualizzo l'array nella console
-getData().then(body => console.log(body))
-
-
-// Visualizzo i prodotti dell'array sulla pagina
-const productsContainer = document.getElementById("productsContainer");
-
-function showProducts(product) {
-    const productContainer = document.createElement("div");
-    productContainer.setAttribute("class", "col-12 col-md-4 col-lg-3");
-    productContainer.innerHTML = `<div class="card mb-3" style"width: 18rem;">
-    <a href="product.html?id=${product._id}"><img class="bookImg" src="${product.imageUrl}" class="card-img-top" alt="product image"></a>
-    <div class="card-body">
-      <h5 class="card-title">${product.name}</h5>
-      <p class="card-text">${product.price} $</p>
-      <p class="card-text">${product.description}</p>
-      <a href="newProduct.html?id=${product._id}" class="btn btn-primary">Modify Product</a>
-      </div>
-      </div>`
-    productContainer.append(productsContainer);
-}
-
-getData().then(products => {
-    products.map((product) => showProducts(product))
-});*/
