@@ -1,7 +1,7 @@
 const ENDPOINT = "https://striveschool-api.herokuapp.com/api/product/"
 const KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjA4MTdjMWViYzE5NzAwMTk4ZWQxM2MiLCJpYXQiOjE3MTE4MDY0MDEsImV4cCI6MTcxMzAxNjAwMX0.barFv73SIEyQx9V2AwLRiHeMA3UPuFZNBhVJTkZTJX8"
 
-// Recuperiamo l'id dall'URL
+// Recupero l'id dall'URL
 let searchParams = new URLSearchParams(window.location.search)
 let id = searchParams.get("id")
 
@@ -15,7 +15,7 @@ window.onload = async () => {
         })
         const product = await response.json()
 
-        // Se l'id c'è, il titolo diventa "Edit"
+        // Se l'id c'è, il titolo diventa "Edit or Delete Product"
         document.querySelector("h3").innerText = "Edit or Delete Product"
 
         // compilo il form

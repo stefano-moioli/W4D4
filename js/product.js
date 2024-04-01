@@ -5,6 +5,7 @@ const KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjA4MTdjMWV
 let searchParams = new URLSearchParams(window.location.search)
 let id = searchParams.get("id")
 
+//Visualizzo i dettagli di un prodotto in una nuova pagina
 window.onload = async () => {
     if (id) {
         const response = await fetch(ENDPOINT + id, {
