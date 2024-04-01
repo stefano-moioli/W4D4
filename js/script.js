@@ -10,7 +10,7 @@ window.onload = async () => {
     })
     const products = await response.json();
     const productsContainer = document.getElementById("productsContainer");
-    products.forEach((product) => {
+    products.map((product) => {
         productsContainer.innerHTML += `
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mt-4 productContainer">
         <a href="product.html?id=${product._id}"><img class="productImg" src="${product.imageUrl}" class="card-img-top" alt="product image"></a>
