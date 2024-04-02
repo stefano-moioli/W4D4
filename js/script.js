@@ -1,7 +1,7 @@
-//Chiamata Fetch
 const ENDPOINT = "https://striveschool-api.herokuapp.com/api/product/"
 const KEY = "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjA4MTdjMWViYzE5NzAwMTk4ZWQxM2MiLCJpYXQiOjE3MTE4MDY0MDEsImV4cCI6MTcxMzAxNjAwMX0.barFv73SIEyQx9V2AwLRiHeMA3UPuFZNBhVJTkZTJX8"
 
+//Chiamata Fetch e visualizzazione prodotti nella pagina
 window.onload = async () => {
     try {
         const response = await fetch(ENDPOINT, {

@@ -7,31 +7,35 @@ let id = searchParams.get("id")
 
 
 window.onload = async () => {
-    if (id) {
-        const response = await fetch(ENDPOINT + id, {
-            headers: {
-                authorization: KEY,
-            },
-        })
-        const product = await response.json()
-
-        // Se l'id c'è, il titolo diventa "Edit or Delete Product"
-        document.querySelector("h3").innerText = "Edit or Delete Product"
-
-        // compilo il form
-        document.getElementById("name").value = product.name
-        document.getElementById("description").value = product.description
-        document.getElementById("brand").value = product.brand
-        document.getElementById("imageUrl").value = product.imageUrl
-        document.getElementById("price").value = product.price
-        
-        //rimuovo i bottoni non necessari
-        document.getElementById("createBtn").remove()
-        
-    } else{
-        document.getElementById("editBtn").remove()
-        document.getElementById("deleteBtn").remove()
-    }
+    try {
+        if (id) {
+            const response = await fetch(ENDPOINT + id, {
+                headers: {
+                    authorization: KEY,
+                },
+            })
+            const product = await response.json()
+    
+            // Se l'id c'è, il titolo diventa "Edit or Delete Product"
+            document.querySelector("h3").innerText = "Edit or Delete Product"
+    
+            // compilo il form
+            document.getElementById("name").value = product.name
+            document.getElementById("description").value = product.description
+            document.getElementById("brand").value = product.brand
+            document.getElementById("imageUrl").value = product.imageUrl
+            document.getElementById("price").value = product.price
+            
+            //rimuovo i bottoni non necessari
+            document.getElementById("createBtn").remove()
+            
+        } else{
+            document.getElementById("editBtn").remove()
+            document.getElementById("deleteBtn").remove()
+        }
+    } catch (error) {
+        console.log(error);
+    }   
 }
 
 // Funzione per creare nuovo prodotto (metodo POST)
